@@ -1,53 +1,34 @@
-import { useEffect, useState } from 'react';
-import io, { Socket } from 'socket.io-client';
+import { useState, useEffect, useCallback } from 'react';
+import io from 'socket.io-client';
 
-interface UseWebSocketResult {
-    socket: Socket | null;
-    image: string | null;
-    connectionStatus: string;
-    uploadStatus: string;
-    setImage: (image: string | null) => void;
-    setUploadStatus: (status: string) => void;
-}
+const useWebSocket = (url: string) => {
+  const [socket, setSocket] = useState<any>(null);
+  const [imageData, setImageData] = useState<Uint8Array | null>(null);
 
-const useWebSocket = (): UseWebSocketResult => {
-    const [socket, setSocket] = useState<Socket | null>(null);
-    const [image, setImage] = useState<string | null>(null);
-    const [connectionStatus, setConnectionStatus] = useState<string>('Disconnected');
-    const [uploadStatus, setUploadStatus] = useState<string>('');
+  useEffect(() => {
+    const socketConnection = io(url);
+    setSocket(socketConnection);
 
-    useEffect(() => {
-        const newSocket = io('http://127.0.0.1:5000/', { transports: ['websocket'] });
-        setSocket(newSocket);
+    socketConnection.on('file_processed', (data: { image: Uint8Array, error?: string }) => {
+      if (data.image) {
+        setImageData(data.image);
+      } else if (data.error) {
+        console.error('Error processing file:', data.error);
+      }
+    });
 
-        newSocket.on('connect', () => {
-            console.log('Connected to server');
-            setConnectionStatus('Connected');
-        });
+    return () => {
+      socketConnection.disconnect();
+    };
+  }, [url]);
 
-        newSocket.on('file_processed', (data: { image: Uint8Array }) => {
-            const blob = new Blob([new Uint8Array(data.image)], { type: 'image/jpeg' });
-            const imageUrl = URL.createObjectURL(blob);
-            setImage(imageUrl);
-            setUploadStatus('Image processed successfully');
-        });
+  const sendFile = useCallback((filename: string, fileData: ArrayBuffer) => {
+    if (socket) {
+      socket.emit('upload_file', { filename, file: fileData });
+    }
+  }, [socket]);
 
-        newSocket.on('disconnect', () => {
-            console.log('Disconnected from server');
-            setConnectionStatus('Disconnected');
-        });
-
-        newSocket.on('connect_error', () => {
-            console.log('Connection failed');
-            setConnectionStatus('Connection failed');
-        });
-
-        return () => {
-            newSocket.disconnect();
-        };
-    }, []);
-
-    return { socket, image, connectionStatus, uploadStatus, setImage, setUploadStatus };
+  return { sendFile, imageData };
 };
 
 export default useWebSocket;

@@ -1,3 +1,4 @@
+// Propósito: Es la página de inicio de la aplicación, accesible desde la raíz (/) de la URL.
 import React from 'react';
 import Link from 'next/link';
 import { useWebSocketContext } from '../context/WebSocketContext';

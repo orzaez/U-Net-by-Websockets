@@ -37,7 +37,7 @@ Dos tipos principales de componentes en React:
 
 - Componentes funcionales: Son funciones de JavaScript que reciben propiedades (props) como argumentos y devuelven elementos de React, que son esencialmente el código TSX que representa lo que se muestra en la pantalla.
 
-- Componentes de clase: Son clases de JavaScript que extienden de React.Component y tienen un método render que devuelve elementos de React.Aunque son más poderosos en términos de funcionalidades,  desde la introducción de Hooks, los componentes funcionales son más comunes.
+- Componentes de clase: Son clases de JavaScript que extienden de React.Component y tienen un método render que devuelve elementos de React. Aunque son más poderosos en términos de funcionalidades,  desde la introducción de Hooks, los componentes funcionales son más comunes.
 
 ## Hooks en React
 

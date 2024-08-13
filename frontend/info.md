@@ -12,7 +12,7 @@
     │
     ├── pages/              # Páginas de tu aplicación
     │   ├── index.tsx        # Página principal (http://localhost:3000/)
-    │   └── _app.tsx         # Componente principal que envuelve todas las páginas
+    │   └── _app.tsx         # Asegura que el contexto WebSocket esté disponible en todas las páginas.
     │
     ├── public/             # Archivos públicos, accesibles directamente
     │   └── favicon.ico     # Favicon por defecto
@@ -25,6 +25,10 @@
     ├── package.json        # Información del proyecto y dependencias
     └── README.md           # Información general sobre el proyecto
 .
+
+## TypeScript
+TypeScript es un superset de JavaScript que añade tipado estático al lenguaje. Esto significa que permite definir los tipos de datos (como números, cadenas, objetos, etc.) de las variables, funciones, y objetos en tu código, lo que ayuda a evitar errores comunes en tiempo de ejecución y facilita el desarrollo de aplicaciones más grandes y robustas. Además, TypeScript se compila a JavaScript, por lo que se puede ejecutar en cualquier entorno que soporte JavaScript.
+
 
 ## El DOM Virtual
 

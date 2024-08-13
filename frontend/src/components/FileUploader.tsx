@@ -12,8 +12,8 @@ import React, { useState } from 'react';
 
 interface FileUploaderProps {
   // Define las propiedades (props) que el componente FileUploader espera recibir.
-  // onFileUpload: Esta es una función que debe ser proporcionada por el componente padre que usa FileUploader. Se llama cuando el usuario decide subir el archivo seleccionado, 
-  // y recibe el archivo (file: File) como argumento
+  // onFileUpload: Esta es una función que debe ser proporcionada por el componente padre que usa FileUploader. 
+  // Se llama cuando el usuario decide subir el archivo seleccionado, y recibe el archivo (file: File) como argumento
   
   onFileUpload: (file: File) => void;
 }

@@ -1,3 +1,7 @@
+// Este archivo es una definición de tipos para el manejo de WebSocket. 
+// Es probable que defina los tipos de datos esperados por la conexión WebSocket, como los eventos y 
+// las cargas útiles que el cliente y el servidor intercambian.
+
 declare module 'ws' {
     import { Server as HTTPServer } from 'http';
     import { EventEmitter } from 'events';

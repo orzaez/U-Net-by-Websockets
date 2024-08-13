@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import WebSocketComponent from '../components/WebSocketComponent';
+import { useWebSocketContext } from '../context/WebSocketContext';
 import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
-  const [connectionStatus, setConnectionStatus] = useState<string>('Connecting...');
+  const { socket } = useWebSocketContext();
+  const connectionStatus = socket?.connected ? 'Connected' : 'Disconnected';
 
   return (
     <div className={styles.container}>
-      <h1>Monitoreo y aplicación de U-Net </h1>
-      <WebSocketComponent setConnectionStatus={setConnectionStatus} />
-      <p>Estado de la conexión: {connectionStatus}</p>
+      <h1>Welcome to the Monitoring and U-Net Dashboard</h1>
+      <p>WebSocket Status: {connectionStatus}</p>
       <div className={styles.linkContainer}>
         <Link href="/dashboard" className={styles.linkBox}>
-          Dashboard
+          Go to Dashboard
         </Link>
         <Link href="/u-net" className={styles.linkBox}>
-          U-Net
+          Go to U-Net
         </Link>
       </div>
     </div>

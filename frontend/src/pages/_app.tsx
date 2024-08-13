@@ -1,7 +1,6 @@
-import '../styles/globals.css';
+import '../styles/global.css';
 import type { AppProps } from 'next/app';
 import { WebSocketProvider } from '../context/WebSocketContext';
-import 'globals.css';
 
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,0 +1,44 @@
+/* src/styles/global.css */
+.file-uploader {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .file-uploader input {
+    margin-bottom: 10px;
+  }
+  
+  .file-uploader button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .file-uploader button:disabled {
+    background-color: #ccc;
+  }
+  
+  .file-uploader p {
+    margin-top: 10px;
+  }
+  
+  .file-uploader .success {
+    color: green;
+  }
+  
+  .file-uploader .error {
+    color: red;
+  }
+  
+  .file-uploader progress {
+    width: 100%;
+    margin-top: 10px;
+  }
+  

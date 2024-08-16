@@ -11,10 +11,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chart.js": "^4.4.3",
+    "lodash": "^4.17.21",
     "mime-types": "^2.1.35",
     "next": "14.2.5",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
+    "react-d3-speedometer": "^2.2.1",
     "react-dom": "^18",
+    "react-gauge-chart": "^0.5.1",
     "socket.io-client": "^4.7.5",
     "ws": "^8.5.0"
   },
@@ -23,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-gauge-chart": "^0.4.3",
     "@types/socket.io-client": "^3.0.0",
     "@types/ws": "^8.5.12",
     "eslint": "^8",

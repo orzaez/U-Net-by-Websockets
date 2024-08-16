@@ -1,24 +1,35 @@
-// Propósito: Es la página de inicio de la aplicación, accesible desde la raíz (/) de la URL.
-import React from 'react';
-import Link from 'next/link';
-import { useWebSocketContext } from '../context/WebSocketContext';
+import React, { useState } from 'react';
+import Dashboard from '../components/DashBoard';
+import GrafanaDashboard from '../components/GrafanaDashboard';
+import UNet from '../components/UNet';
 import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
-  const { socket } = useWebSocketContext();
-  const connectionStatus = socket?.connected ? 'Connected' : 'Disconnected';
+  const [activeComponent, setActiveComponent] = useState<'dashboard' | 'grafana' | 'unet'>('dashboard');
 
   return (
     <div className={styles.container}>
       <h1>Welcome to the Monitoring and U-Net Dashboard</h1>
-      <p>WebSocket Status: {connectionStatus}</p>
       <div className={styles.linkContainer}>
-        <Link href="/dashboard" className={styles.linkBox}>
+        <button className={styles.linkBox} onClick={() => setActiveComponent('dashboard')}>
           Go to Dashboard
-        </Link>
-        <Link href="/u-net" className={styles.linkBox}>
+        </button>
+        <button className={styles.linkBox} onClick={() => setActiveComponent('grafana')}>
+          Go to Grafana
+        </button>
+        <button className={styles.linkBox} onClick={() => setActiveComponent('unet')}>
           Go to U-Net
-        </Link>
+        </button>
+      </div>
+
+      <div className={styles.content}>
+        {activeComponent === 'dashboard' ? (
+          <Dashboard />
+        ) : activeComponent === 'grafana' ? (
+          <GrafanaDashboard />
+        ) : (
+          <UNet />
+        )}
       </div>
     </div>
   );

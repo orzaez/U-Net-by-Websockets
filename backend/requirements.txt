@@ -1,0 +1,9 @@
+numpy==1.24.0
+opencv-python-headless
+torch==2.0.1
+flask==3.0.3
+flask-socketio
+flask-cors==4.0.1
+werkzeug==3.0.3
+requests==2.31.0
+matplotlib==3.6.3

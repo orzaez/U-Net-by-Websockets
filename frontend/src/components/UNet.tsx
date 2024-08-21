@@ -18,7 +18,7 @@ const UNet: React.FC = () => {
 
   // Usar el hook de WebSocket con la IP y puerto correctos
   // imageData = Es un estado que contiene los datos de la imagen procesada recibida desde el servidor.
-  const { sendFile, imageData } = useWebSocket('http://10.14.31.212:5000');
+  const { sendFile, imageData } = useWebSocket('http://IP_BACK:5000');
 
   // se ejecuta cada vez que cambia el valor de imageData
   useEffect(() => {

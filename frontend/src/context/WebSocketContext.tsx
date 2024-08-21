@@ -14,7 +14,7 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const socketConnection = io('http://10.14.31.212:5000', { transports: ['websocket'], reconnectionAttempts: 5 });
+    const socketConnection = io('http://IP_BACK:5000', { transports: ['websocket'], reconnectionAttempts: 5 });
     setSocket(socketConnection);
 
     socketConnection.on('connect', () => {

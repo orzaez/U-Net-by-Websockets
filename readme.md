@@ -107,19 +107,20 @@ npm run dev
 
 ```
 
-Esto iniciará el servidor de desarrollo del frontend y abrirá automáticamente el navegador en http://localhost:3000.
+Esto iniciará el servidor de desarrollo del frontend y abrirá automáticamente el navegador en ``` http://localhost:3000. ```
 
 ### Acceso a Grafana
 
-Grafana estará disponible en http://localhost:3000 dentro de un iframe en el frontend, o directamente accediendo desde el navegador si prefieres ver los dashboards completos
-
+Grafana estará disponible en ```http://localhost:3000``` dentro de un iframe en el frontend, o directamente accediendo desde el navegador si prefieres ver los dashboards completos
 
 ### Contribuir
 
 ¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
 
 ### Licencia
+
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 ### Contacto
+
 Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con el propietario del repositorio.
